@@ -22,6 +22,9 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div id="conversation">
+				<div ng-repeat="line in data.lines">
+					<p><em>{{line.title}}</em>: {{line.content}}</p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -32,12 +35,14 @@
 	<div class="row">
 		<div class="col-md-12" style="margin-top:7px;">
 
-		    <div class="input-group">
-		      <input type="text" class="form-control">
-		      <span class="input-group-btn">
-		        <button class="btn btn-default" type="button">Send</button>
-		      </span>
-		    </div>
+			<form role="form" ng-submit="textAction()" name="textForm">
+			    <div class="input-group">
+			      <input type="text" ng-model="data.text" class="form-control" required>
+			      <span class="input-group-btn">
+			        <button class="btn btn-default" type="submit" ng-disabled="textForm.$invalid">Send</button>
+			      </span>
+			    </div>
+			</form>
 
 		</div>
 	</div>
