@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('gossipWebApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, $cookies, $location) {
+
+    $scope.signInAction = function() {
+    	$cookies.userName = $scope.userName;
+    	$location.path('/talk');
+    };
+    
   });

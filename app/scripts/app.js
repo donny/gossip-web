@@ -12,6 +12,10 @@ angular.module('gossipWebApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/talk', {
+        templateUrl: 'views/talk.html',
+        controller: 'TalkCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
