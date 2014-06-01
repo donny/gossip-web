@@ -7,10 +7,11 @@ angular.module('gossipWebApp')
   	$scope.data.text = "";
   	$scope.data.lines = [];
   	$scope.userName = $cookies.userName;
+    $scope.userColor = $cookies.userColor;
 
   	$scope.appendText = function(text) {
   		var texts = text.split(":::");
-  		$scope.data.lines.push({title: texts[0], content: texts[1]});
+      $scope.data.lines.push({title: texts[0], style: {color: texts[1]}, content: texts[2]});
   		$scope.$digest();
   	};
 
@@ -22,7 +23,7 @@ angular.module('gossipWebApp')
     	if ($scope.socketConnection === null) {
     		$scope.appendInfo("Your browser does not support WebSockets.");
     	} else {
-	    	var text = $scope.userName + ':::' + $scope.data.text;
+        var text = $scope.userName + ':::' + $scope.userColor + ':::' + $scope.data.text;
 	    	$scope.socketConnection.send(text);
     	}
 

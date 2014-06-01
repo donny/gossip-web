@@ -23,7 +23,7 @@
 		<div class="col-md-12">
 			<div id="conversation">
 				<div ng-repeat="line in data.lines">
-					<p><em>{{line.title}}</em>: {{line.content}}</p>
+					<p><strong ng-style="{{line.style}}">{{line.title}} :</strong> {{line.content}}</p>
 				</div>
 			</div>
 		</div>
